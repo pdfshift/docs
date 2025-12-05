@@ -81,14 +81,7 @@
                 "expanded": false,
                 "pages": [
                   "docs/saving/to-s3",
-                  "docs/saving/to-gs",
-                  "docs/saving/to-wasabi",
-                  "docs/saving/to-ovh",
-                  "docs/saving/to-cloudflare",
-                  "docs/saving/to-digitalocean",
-                  "docs/saving/to-blackblaze",
-                  "docs/saving/to-linode",
-                  "docs/saving/to-scaleway"
+                  "docs/saving/to-gs"
                 ]
               },
               "docs/varying-responses",
