@@ -1,0 +1,26 @@
+---
+title: "Rendering header and footer"
+mode: "center"
+---
+
+You can configure the aspect of your header and footer document using the following values.
+
+<Warning>
+The footer and header are Independent from the rest of the document.
+
+As such, the CSS style defined in your body won't apply on your header/footer.
+To style your header/footer, you need to set a specific style either using `<style />` tag first, or adding `style=""` on your DOM elements.
+</Warning>
+
+
+
+Accepted variables
+------------------
+
+| Variable | Description |
+| -------- | ----------- |
+| `{{date}}` | Formatted print date |
+| `{{title}}` | Title of the HTML document |
+| `{{url}}` | Page URL |
+| `{{page}}` | Current page |
+| `{{total}}` | Total number of pages |

@@ -1,0 +1,144 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "almond",
+  "name": "PDFShift API Documentation",
+  "description": "",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#07C983",
+    "dark": "#15803D"
+  },
+  "favicon": "/favicon.ico",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navigation": {
+        "pages": [
+          "index",
+          "docs/authentication",
+          "docs/sandbox",
+          "docs/rate-limit",
+          "docs/error-codes",
+          "docs/openapi",
+          {
+            "group": "API Reference",
+            "openapi": "openapi.json",
+            "pages": [
+              {
+                "group": "Account",
+                "pages": [
+                  "GET /account"
+                ]
+              },
+              {
+                "group": "Conversion",
+                "expanded": true,
+                "pages": [
+                  "POST /convert/pdf",
+                  "POST /convert/png",
+                  "POST /convert/jpeg",
+                  "POST /convert/webp"
+                ]
+              },
+              {
+                "group": "Credits",
+                "pages": [
+                  "GET /credits/usage"
+                ]
+              },
+              {
+                "group": "Invoices",
+                "pages": [
+                  "GET /invoices"
+                ]
+              },
+              {
+                "group": "Logs",
+                "pages": [
+                  "GET /logs",
+                  "GET /logs/{request_id}"
+                ]
+              },
+              {
+                "group": "Templates",
+                "pages": [
+                  "GET /templates",
+                  "POST /templates",
+                  "GET /templates/{slug}.html",
+                  "PUT /templates/{slug}",
+                  "DELETE /templates/{slug}",
+                  "POST /templates/{slug}.{ext}"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Misc",
+            "pages": [
+              {
+                "group": "Export to your Bucket",
+                "expanded": false,
+                "pages": [
+                  "docs/saving/to-s3",
+                  "docs/saving/to-gs",
+                  "docs/saving/to-wasabi",
+                  "docs/saving/to-ovh",
+                  "docs/saving/to-cloudflare",
+                  "docs/saving/to-digitalocean",
+                  "docs/saving/to-blackblaze",
+                  "docs/saving/to-linode",
+                  "docs/saving/to-scaleway"
+                ]
+              },
+              "docs/varying-responses",
+              "docs/getting-an-api-key",
+              "docs/webhook-events",
+              "docs/response-headers",
+              "docs/header-footer",
+              "docs/margin",
+              "docs/protection",
+              "docs/watermark"
+            ]
+          }
+        ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@pdfshift.io"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://app.pdfshift.io"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/pdfshift"
+    }
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
+    },
+    "examples": {
+      "languages": ["python", "javascript", "java", "php", "ruby", "go", "csharp", "curl"]
+    }
+  }
+}

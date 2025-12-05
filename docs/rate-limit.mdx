@@ -1,0 +1,25 @@
+---
+title: "Rate limit"
+mode: "center"
+---
+
+Rate limiting is only forced for **unauthenticated accounts** with a limit of 2 requests per minutes.
+
+Once authenticated, you can convert up to 250 documents per minute (10 only if you use the sandbox mode).
+
+When reaching the rate limit, you will get an HTTP status code of `429`.
+
+Each request will contain three headers to let you know your usage:
+
+<ParamField header="X-RateLimit-Remaining" type="Integer">
+Indicates the number of requests before hitting the rate limit.
+</ParamField>
+
+<ParamField header="X-RateLimit-Limit" type="Integer">
+Indicates the number of requests you can make per minutes.
+</ParamField>
+
+<ParamField header="X-RateLimit-Reset" type="Integer">
+Represents a timestamp in seconds.
+Indicates when the rate limit will reset.
+</ParamField>

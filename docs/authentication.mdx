@@ -1,0 +1,36 @@
+---
+title: "Authentication"
+mode: "center"
+---
+
+Authenticate your account by including your **secret API key** in every request.  
+You can create and manage API keys from the <a href="https://app.pdfshift.io" target="_blank">Dashboard</a>.
+
+Send your key using the following HTTP header:
+
+`X-API-Key: sk_xxxxxx.....`
+
+
+<Warning>
+If the `X-API-Key` header is **absent**, **empty**, or **malformed**, the API will treat the request as coming from a **free account**.
+
+Free accounts are subject to **more restricted limits and capabilities** than authenticated requests.
+</Warning>
+
+
+Free or unauthenticated account limits
+--------------------------------------
+
+Free (or unauthenticated) accounts can access the same PDFShift endpoint to convert a document, but with very restricted usage.
+
+Specifically:
+
+1. Generated documents include a watermark, even if `sandbox` is set to `false`.
+2. Documents larger than **2 MB** cannot be converted.
+3. Requests have a shorter timeout of **30 seconds**.
+4. You can only do **up to 10 conversions per day**.
+4. Parallel requests are not allowed.
+
+If you believe you are sending your API key using the `X-API-Key` header but are still seeing these restrictions, it likely means the request is malformed (for example, the header name is incorrect or the key is not properly formatted).
+
+Don’t hesitate to reach out to us in that case — we’ll help you sort it out.

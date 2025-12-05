@@ -1,0 +1,34 @@
+---
+title: "Response headers"
+mode: "center"
+---
+
+When you do a successful call to the `/convert/{pdf|jpeg|png|webp}` endpoint, the response will contain a few custom headers that can help you better trace the whole requests througout our system.
+
+Here's the list of headers returned by PDFShift:
+
+<ParamField header="X-Response-Status-Code" type="Integer">
+Provides the status code PDFShift got when loading your source when it is an HTTP request.
+</ParamField>
+
+<ParamField header="X-PDFShift-Processor" type="String">
+Returns the name of the PDFShift's server that ran the conversion.
+</ParamField>
+
+<ParamField header="X-Credits-Cost" type="Integer">
+Indicates the number of credits that this generation requires.
+</ParamField>
+
+<ParamField header="X-Credits-Used" type="Integer">
+Contrary to `X-Credits-Cost`, this header indicates the number of credits that were decreased from your account.
+It is identical to `X-Credits-Cost` excepted if you passed the `sandbox` parameter, in which case the value will be at 0.
+</ParamField>
+
+<ParamField header="X-Response-Duration" type="Integer">
+The number of miliseconds it took to load the HTML source provided in the request.
+</ParamField>
+
+<ParamField header="X-PDFShift-Duration" type="Integer">
+The number of miliseconds it took to load the source and then generate the PDF document.
+This value should be closer to the Time To First Byte duration you can have on your end.
+</ParamField>

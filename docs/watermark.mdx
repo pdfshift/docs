@@ -1,0 +1,76 @@
+---
+title: "Adding a watermark"
+mode: "center"
+---
+
+You can add a watermark to your documents via these alternatives:
+
+ * Via Text
+ * Via Image
+
+
+Each alternatives has a set of options, which is detailed here:
+
+Via Text
+--------
+
+<ParamField body="text" type="String" required>
+The text to display as watermark.
+</ParamField>
+
+<ParamField body="font_size" type="Integer" default="16">
+The font size used.
+</ParamField>
+
+<ParamField body="font_family" type="String" default="Helvetica">
+The font family used.
+</ParamField>
+
+<ParamField body="font_color" type="String" default="000000">
+The color of the text.
+</ParamField>
+
+<ParamField body="font_opacity" type="Integer" default="100">
+The opacity for the text.
+</ParamField>
+
+<ParamField body="font_bold" type="Boolean" default="false">
+Set to true if you want the text bold.
+</ParamField>
+
+<ParamField body="font_italic" type="Boolean" default="false">
+Set to true if you want the text in italic.
+</ParamField>
+
+<ParamField body="offset_x" type="String" default="center">
+The X position. Can be either a String (left, center, right) or a number with unit (defaults to pixels. Allowed units are 'px', 'in', 'cm', 'mm', 'pt').
+</ParamField>
+
+<ParamField body="offset_y" type="String" default="middle">
+The Y position. Can be either a string (top, middle, bottom) or a number with unit (defaults to pixels. Allowed units are 'px', 'in', 'cm', 'mm', 'pt').
+</ParamField>
+
+<ParamField body="rotate" type="Integer" default="-45">
+The degree for the rotated element.
+</ParamField>
+
+
+Via Image
+---------
+
+<ParamField body="image" type="String" required>
+The image to display as watermark.
+Can be a URL or a Base64 encoded content.
+</ParamField>
+
+<ParamField body="offset_x" type="String" default="center">
+The X position. Can be either a String (left, center, right) or a number with unit (defaults to pixels. Allowed units are 'px', 'in', 'cm', 'mm', 'pt').
+</ParamField>
+
+<ParamField body="offset_y" type="String" default="middle">
+The Y position. Can be either a string (top, middle, bottom) or a number with unit (defaults to pixels. Allowed units are 'px', 'in', 'cm', 'mm', 'pt').
+</ParamField>
+
+<ParamField body="rotate" type="Integer" default="-45">
+The degree for the rotated element.
+</ParamField>

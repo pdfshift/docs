@@ -1,0 +1,23 @@
+---
+title: "Adding protection to PDF"
+mode: "center"
+---
+
+You can restrict access to your generated document using the following rules.
+The encryption is made in 128bits.
+
+<Warning>
+Some PDF Reader don't make the distinction between user and owner in a PDF Document.
+This means that when the user password has been entered, some PDF reader ignore the restrictions (no print, no copy, etc).
+</Warning>
+
+So, setting a blank password for the user is similar to no security.
+
+| Parameter | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| author | String | null | Document's author name |
+| user_password | String | null | A user who has the password will be able to view the document and perform operations allowed by the permission options |
+| owner_password | String | null | A user who has the password will have unlimited access to the PDF, including changing the passwords and permission options. |
+| no_print | Boolean | false | When set to true, printing will be disabled. |
+| no_copy | Boolean | false | When set to true, the possibility to copy any text will be disabled. |
+| no_modify | Boolean | false | When set to true, the possibility to modify the document will be disabled. |

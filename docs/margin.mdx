@@ -1,0 +1,24 @@
+---
+title: "Margins"
+mode: "center"
+---
+
+You can define margin for the document (space between the limits of the document and the beginning of the content).
+You can either pass an object as defined below, or use a CSS like string, like the following:
+
+| Value | Description |
+| ----- | ----------- |
+| 10px | Will set a margin of 10px for all four borders. |
+| 10px 0 | Will set a margin of 10px for top and bottom, and a margin of 0 for left and right. |
+| 10px 0 20px | Will set a margin of 10px for top, 0 for left and right and 20px for the bottom. |
+| 10px 20px 30px 40px | Will set a margin of 10px for top, 20px for right, 30px for bottom and 40px for left. |
+
+
+Otherwise, you can use an object to directly target a specific margin, using the following:
+
+| Parameter | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| top | Integer or String | null | Space between the top and the content. |
+| right | Integer or String | null | Space between the right and the content. |
+| bottom | Integer or String | null | Space between the bottom and the content. |
+| left | Integer or String | null | Space between the left and the content. |

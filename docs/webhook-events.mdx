@@ -1,0 +1,47 @@
+---
+title: "Webhook events"
+mode: "center"
+---
+
+<Warning>
+When the conversion fail, we also do a `POST` request to your endpoint, but with an `error` key instead.
+
+We recommend you to first check if the body contains the `error` before processing the document, and act accordingly.
+</Warning>
+
+If the `webhook` parameter is defined, the call to PDFShift's API will return a Queued response along with a 202 status code, like the following:
+
+`{"queued": true}`
+
+Once the processing has been done, we will send a `POST` request to your webhook endpoint, containing a JSON payload with the URL to your converted document, stored at Amazon S3 for two days.
+
+
+Here's a sample of the payload we will send you:
+
+```json
+{
+    "success": true,
+    "url": "https://s3.amazonaws.com/pdfshift/d/2/2019-05/99c456250a01448686d81752a3fb5beb/15466098-8368-49e1-ac33-ff4c3941a0df.pdf",
+    "filesize": 259972,
+    "duration": 1500,
+    "response": {
+        "duration": 2562,
+        "status-code": 200
+    },
+    "executed": "2025-12-02T12:34:56.789Z",
+    "pdf_pages": 5
+}
+```
+
+In case there is any error while processing your document, we will instead send you a payload containing an error key, like the following:
+
+```json
+{
+    "error": {
+        "code": 400,
+        "error": "The requested page took too long to load.",
+        "identifier": "A74",
+        "success": false
+    }
+}
+```

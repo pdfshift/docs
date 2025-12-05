@@ -1,0 +1,65 @@
+---
+title: "Varying responses"
+mode: "center"
+---
+
+When calling the `POST /v3/convert/{type}` endpoint, PDFShift will return you a different set of response that depends on the parameters you provided.
+
+<Note>This is important to take into consideration when developing your logic</Note>
+
+Default response
+----------------
+
+By default, PDFShift will return the raw binary document (either a PDF, JPEG, PNG or WEBP).
+
+
+`filename` parameter
+--------------------
+
+But if you pass the `filename` parameter, **the result will be a JSON object** and the binary data will be stored on an S3 storage.
+
+Here's a sample of the JSON response:
+
+```json
+{
+    "success": true,
+    "url": "https://s3.amazonaws.com/pdfshift/d/2/2019-05/99c456250a01448686d81752a3fb5beb/15466098-8368-49e1-ac33-ff4c3941a0df.pdf",
+    "filesize": 259972,
+    "duration": 1500,
+    "response": {
+        "duration": 2562,
+        "status-code": 200
+    },
+    "executed": "2025-12-02T12:34:56.789Z",
+    "pdf_pages": 5
+}
+```
+
+<Note>The `pdf_pages` is obviously only present when converting to a PDF document</Note>
+
+This is because when you pass `filename`, you indicate to PDFShift that you don't want to receive back the binary PDF, but you want to create a file and receive a pointer to that file, which is represented by the "url" parameter.
+
+
+`webhook` parameter
+-------------------
+
+Finally, if you pass the `webhook` parameter, you ask PDFShift to convert the document and then send you the data not in response, but as a POST request toward your server (provided by the `webhook` value).
+
+In this case, PDFShift will send a POST request to your server with the same data as for the `filename` parameter, such as :
+
+```json
+{
+    "success": true,
+    "url": "https://s3.amazonaws.com/pdfshift/d/2/2019-05/99c456250a01448686d81752a3fb5beb/15466098-8368-49e1-ac33-ff4c3941a0df.pdf",
+    "filesize": 259972,
+    "duration": 1500,
+    "response": {
+        "duration": 2562,
+        "status-code": 200
+    },
+    "executed": "2025-12-02T12:34:56.789Z",
+    "pdf_pages": 5
+}
+```
+
+You can read more about the Webhook events at [Webhook events](/docs/webhook-events).
