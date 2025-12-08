@@ -23,7 +23,7 @@
           "docs/openapi",
           {
             "group": "API Reference",
-            "openapi": "openapi.json",
+            "openapi": "https://api.pdfshift.io/openapi.json",
             "pages": [
               {
                 "group": "Account",
