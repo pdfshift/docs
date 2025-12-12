@@ -131,7 +131,8 @@
       "display": "interactive"
     },
     "examples": {
-      "languages": ["python", "javascript", "java", "php", "ruby", "go", "csharp", "curl"]
+      "languages": ["python", "javascript", "php", "ruby", "go", "csharp", "java", "curl"],
+      "defaults": "required"
     }
   }
 }
