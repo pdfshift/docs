@@ -2,3 +2,29 @@
 title: "Saving to Google Storage"
 mode: "center"
 ---
+
+With PDFShift, you can save the converted PDF directly into your Google Cloud Storage bucket, allowing you to post process it or deliver it to your clients using your own system.
+
+In order to be able to save on your Bucket, you'll need to grant PDFShift permission to create objects in your destination bucket.
+
+Google Cloud Storage uses IAM permissions instead of an S3-style bucket policy. We recommend granting PDFShift the **Storage Object Creator** role (`roles/storage.objectCreator`) on the bucket. This allows PDFShift to upload new files without granting read, delete, or bucket administration permissions. Google recommends bucket-level IAM, especially with Uniform bucket-level access enabled.
+
+You can grant access with the following command:
+
+```bash
+gcloud storage buckets add-iam-policy-binding gs://DOC-EXAMPLE-BUCKET \
+    --member="serviceAccount:pdfshift@pdfshift-466112.iam.gserviceaccount.com" \
+    --role="roles/storage.objectCreator"
+```
+
+<Warning>Don't forget to change `DOC-EXAMPLE-BUCKET` to your appropriate bucket's name!</Warning>
+
+Once this permission is in place, you'll be able to use the `gs_destination` parameter and use a value like:
+
+```txt
+gs://DOC-EXAMPLE-BUCKET/pdfshift/upload/86aa3ede7d05.pdf
+```
+
+We recommend using unique file paths for each generated document. If you want PDFShift to overwrite existing files, you may need to grant a broader role that includes object deletion or replacement permissions.
+
+<note>Note: Google Cloud Storage does not have a direct equivalent of S3’s `bucket-owner-full-control` ACL condition. The clean approach is IAM on the bucket.</note>
