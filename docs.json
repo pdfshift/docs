@@ -26,14 +26,7 @@
             "openapi": "https://api.pdfshift.io/openapi.json",
             "pages": [
               {
-                "group": "Account",
-                "pages": [
-                  "GET /account"
-                ]
-              },
-              {
                 "group": "Conversion",
-                "expanded": true,
                 "pages": [
                   "POST /convert/pdf",
                   "POST /convert/png",
@@ -48,9 +41,29 @@
                 ]
               },
               {
-                "group": "Invoices",
+                "group": "Templates",
                 "pages": [
-                  "GET /invoices"
+                  "GET /templates",
+                  "POST /templates",
+                  "GET /templates/{slug}.html",
+                  "PUT /templates/{slug}",
+                  "DELETE /templates/{slug}",
+                  "POST /templates/{slug}.{ext}"
+                ]
+              },
+              {
+                "group": "Account",
+                "pages": [
+                  "GET /account"
+                ]
+              },
+              {
+                "group": "API Keys",
+                "pages": [
+                  "POST /account/api",
+                  "PUT /account/api/{key}",
+                  "POST /account/api/{key}/enable",
+                  "POST /account/api/{key}/disable"
                 ]
               },
               {
@@ -61,14 +74,9 @@
                 ]
               },
               {
-                "group": "Templates",
+                "group": "Invoices",
                 "pages": [
-                  "GET /templates",
-                  "POST /templates",
-                  "GET /templates/{slug}.html",
-                  "PUT /templates/{slug}",
-                  "DELETE /templates/{slug}",
-                  "POST /templates/{slug}.{ext}"
+                  "GET /invoices"
                 ]
               }
             ]
